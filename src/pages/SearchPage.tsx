@@ -114,11 +114,12 @@ export function SearchPage() {
   ]
 
   return (
-    <div className="search-page">
+    <div className={`search-page${mobileView === 'map' ? ' search-page--map-mode' : ''}`}>
       <section className="search-hero">
         <div className="search-hero__bg" role="presentation">
           <img src="/images/search/hero-calgary.jpg" alt="" />
         </div>
+        <div className="search-hero__fade" aria-hidden />
         <div className="search-hero__sign" aria-hidden>
           <div className="search-hero__sign-board">
             <span>Stronger Families</span>

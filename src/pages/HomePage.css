@@ -76,6 +76,18 @@
   object-position: center right;
 }
 
+.home-hero__scene-fade {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    95deg,
+    rgba(250, 250, 248, 0.97) 0%,
+    rgba(250, 250, 248, 0.88) 38%,
+    rgba(250, 250, 248, 0.35) 58%,
+    transparent 75%
+  );
+}
+
 .home-hero__inner {
   position: relative;
   z-index: 1;

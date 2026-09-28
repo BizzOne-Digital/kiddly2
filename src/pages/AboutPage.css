@@ -16,6 +16,18 @@
   background: url('/images/hero-home.jpg') center / cover no-repeat;
 }
 
+.about-hero__wash {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(
+    95deg,
+    rgba(250, 250, 248, 0.94) 0%,
+    rgba(250, 250, 248, 0.78) 45%,
+    rgba(232, 244, 239, 0.45) 100%
+  );
+}
+
 .about-hero__script {
   position: absolute;
   right: clamp(1rem, 8vw, 6rem);

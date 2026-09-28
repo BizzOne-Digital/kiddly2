@@ -71,6 +71,7 @@ export function ForEducatorsPage() {
     <div className="audience-page audience-page--educators">
       <section className="audience-hero">
         <div className="audience-hero__bg" role="presentation" />
+        <div className="audience-hero__wash" aria-hidden />
         <div className="container audience-hero__inner">
           <p className="audience-hero__badge">
             <Sprout size={18} aria-hidden />

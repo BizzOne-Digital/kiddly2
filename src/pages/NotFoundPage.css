@@ -18,9 +18,16 @@
   object-fit: cover;
 }
 
+.not-found__hero-fade {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(180deg, rgba(250, 250, 248, 0.85), rgba(250, 250, 248, 0.95));
+}
+
 .not-found__inner {
   position: relative;
-  z-index: 1;
+  z-index: 2;
   text-align: center;
   padding: var(--space-3xl) 0;
   max-width: 520px;

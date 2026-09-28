@@ -55,6 +55,7 @@ export function AboutPage() {
     <div className="about-page">
       <section className="about-hero">
         <div className="about-hero__bg" role="presentation" />
+        <div className="about-hero__wash" aria-hidden />
         <p className="about-hero__script" aria-hidden>A brighter tomorrow for every child</p>
         <div className="container about-hero__inner">
           <p className="about-hero__badge">

@@ -109,6 +109,7 @@ export function HomePage() {
             fetchPriority="high"
             decoding="async"
           />
+          <div className="home-hero__scene-fade" aria-hidden />
         </div>
         <div className="container home-hero__inner">
           <div className="home-hero__copy">

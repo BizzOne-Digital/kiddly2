@@ -45,7 +45,7 @@ export function SearchResultRow({
         />
         <div className="search-card__main">
           <div className="search-card__head">
-            <div>
+            <div className="search-card__title-block">
               <h3>
                 <Link to={`/providers/${provider.slug}`} onClick={(e) => e.stopPropagation()}>
                   {provider.name}

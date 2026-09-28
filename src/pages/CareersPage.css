@@ -16,6 +16,18 @@
   background: url('/images/grow-educators.jpg') center / cover no-repeat;
 }
 
+.careers-hero__wash {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(
+    95deg,
+    rgba(250, 250, 248, 0.95) 0%,
+    rgba(250, 250, 248, 0.82) 42%,
+    rgba(232, 244, 239, 0.4) 100%
+  );
+}
+
 .careers-hero__script {
   position: absolute;
   right: clamp(1rem, 8vw, 5rem);

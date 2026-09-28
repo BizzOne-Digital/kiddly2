@@ -25,6 +25,7 @@ export function FAQPage() {
     <div className="faq-page">
       <section className="faq-hero">
         <div className="faq-hero__bg" role="presentation" />
+        <div className="faq-hero__wash" aria-hidden />
         <p className="faq-hero__script" aria-hidden>Small Steps Bright Futures</p>
         <div className="container faq-hero__inner">
           <h1>Frequently Asked Questions</h1>

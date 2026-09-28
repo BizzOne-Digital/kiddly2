@@ -215,14 +215,10 @@ section {
     font-size: 0.8rem;
   }
 
-  .search-map-wrap {
-    height: min(420px, 55vh);
-    min-height: 280px;
-  }
-
-  .search-map-wrap .results-map,
-  .search-map-wrap .leaflet-container {
-    min-height: 280px !important;
+  /* List-only map preview (split view off); map tab uses .search-page--map-mode in SearchPage.css */
+  .search-page:not(.search-page--map-mode) .search-map-wrap {
+    height: min(480px, 58vh);
+    min-height: 300px;
   }
 
   .audience-hero__inner,

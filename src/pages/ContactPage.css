@@ -16,6 +16,18 @@
   background: url('/images/search/hero-calgary.jpg') center / cover no-repeat;
 }
 
+.contact-hero__wash {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.88) 0%,
+    rgba(255, 255, 255, 0.55) 45%,
+    rgba(255, 255, 255, 0.25) 100%
+  );
+}
+
 .contact-hero__inner {
   position: relative;
   z-index: 2;
