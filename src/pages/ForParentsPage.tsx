@@ -65,7 +65,6 @@ export function ForParentsPage() {
     <div className="audience-page audience-page--parents">
       <section className="audience-hero">
         <div className="audience-hero__bg" role="presentation" />
-        <div className="audience-hero__wash" aria-hidden />
         <div className="container audience-hero__inner">
           <p className="audience-hero__badge">
             <Heart size={18} aria-hidden />

@@ -138,7 +138,6 @@ export function ContactPage() {
     <div className="contact-page">
       <section className="contact-hero">
         <div className="contact-hero__bg" role="presentation" />
-        <div className="contact-hero__wash" aria-hidden />
         <div className="container contact-hero__inner">
           <h1>Let&apos;s connect</h1>
           <p>

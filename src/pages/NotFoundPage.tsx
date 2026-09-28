@@ -10,7 +10,6 @@ export function NotFoundPage() {
     <div className="not-found">
       <section className="not-found__hero">
         <img src="/images/trust-mountains.jpg" alt="" />
-        <div className="not-found__hero-fade" aria-hidden />
         <div className="container not-found__inner">
           <h1>Page not found</h1>
           <p>That route isn&apos;t part of this site yet. Head home or search for childcare near you.</p>

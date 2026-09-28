@@ -16,17 +16,6 @@
   background: url('/images/search/cta-mountains.jpg') center / cover no-repeat;
 }
 
-.faq-hero__wash {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    95deg,
-    rgba(250, 250, 248, 0.92) 0%,
-    rgba(250, 250, 248, 0.75) 45%,
-    rgba(250, 250, 248, 0.25) 100%
-  );
-}
-
 .faq-hero__inner {
   position: relative;
   z-index: 2;
@@ -247,6 +236,12 @@
   margin: 0;
   color: var(--color-text-muted);
   max-width: 48ch;
+}
+
+@media (max-width: 768px) {
+  .faq-hero__script {
+    display: none;
+  }
 }
 
 @media (max-width: 960px) {

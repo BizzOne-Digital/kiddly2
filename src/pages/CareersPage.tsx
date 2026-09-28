@@ -72,7 +72,6 @@ export function CareersPage() {
     <div className="careers-page">
       <section className="careers-hero">
         <div className="careers-hero__bg" role="presentation" />
-        <div className="careers-hero__wash" aria-hidden />
         <p className="careers-hero__script" aria-hidden>Play Grow Belong</p>
         <div className="container careers-hero__inner">
           <p className="careers-hero__badge">
