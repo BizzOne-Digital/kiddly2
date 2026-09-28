@@ -1,0 +1,11 @@
+.main-content {
+  flex: 1;
+  min-width: 0;
+  max-width: 100%;
+  overflow-x: clip;
+}
+
+.main-content > div {
+  min-width: 0;
+  max-width: 100%;
+}

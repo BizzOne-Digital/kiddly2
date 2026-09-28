@@ -1,0 +1,41 @@
+.related-mini {
+  padding: var(--space-sm);
+}
+
+.related-mini__link {
+  display: grid;
+  grid-template-columns: 72px 1fr;
+  gap: var(--space-sm);
+  text-decoration: none;
+  color: inherit;
+}
+
+.related-mini__link img {
+  width: 72px;
+  height: 72px;
+  object-fit: cover;
+  border-radius: var(--radius-md);
+}
+
+.related-mini h4 {
+  margin: 0 0 2px;
+  font-size: 0.9rem;
+  color: var(--color-navy);
+}
+
+.related-mini p {
+  margin: 0 0 var(--space-xs);
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+}
+
+.related-mini__badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+.related-mini__badges .badge {
+  font-size: 0.65rem;
+  padding: 0.1rem 0.45rem;
+}

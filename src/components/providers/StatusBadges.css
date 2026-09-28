@@ -1,0 +1,59 @@
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.2rem 0.65rem;
+  border-radius: var(--radius-pill);
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  border: 1px solid transparent;
+}
+
+.badge--licensed {
+  background: var(--color-licensed-bg);
+  color: var(--color-licensed-text);
+  border-color: #b8dcc4;
+}
+
+.badge--private {
+  background: var(--color-private-bg);
+  color: var(--color-private-text);
+  border-color: #f0c9b0;
+}
+
+.badge--spots-now {
+  background: var(--color-spots-bg);
+  color: var(--color-spots-text);
+  border-color: #9fd4b5;
+}
+
+.badge--upcoming {
+  background: var(--color-upcoming-bg);
+  color: var(--color-upcoming-text);
+  border-color: #e8d48a;
+}
+
+.badge--waitlist {
+  background: var(--color-waitlist-bg);
+  color: var(--color-waitlist-text);
+  border-color: #c5cad6;
+}
+
+.badge-legend {
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+  background: var(--color-sky-pale);
+  padding: var(--space-md);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border);
+}
+
+.badge-legend p {
+  margin: 0;
+}
+
+.provider-card__badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-xs);
+}

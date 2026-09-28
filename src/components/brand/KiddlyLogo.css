@@ -1,0 +1,15 @@
+.kiddly-logo {
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.kiddly-logo__img {
+  height: 52px;
+  width: auto;
+  object-fit: contain;
+}
+
+.kiddly-logo__img--light {
+  filter: brightness(0) invert(1);
+}

@@ -1,0 +1,27 @@
+.filter-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.filter-chips__chip {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  padding: 0.35rem 0.75rem;
+  border-radius: var(--radius-pill);
+  border: 2px solid var(--color-sky);
+  background: var(--color-sky-pale);
+  font-weight: 700;
+  font-size: 0.8rem;
+  color: var(--color-navy);
+  cursor: pointer;
+  transition: background var(--transition);
+}
+
+.filter-chips__chip:hover {
+  background: var(--color-sky-light);
+}

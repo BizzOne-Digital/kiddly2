@@ -1,0 +1,95 @@
+.landscape {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.landscape__sky {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    #b8e4f5 0%,
+    #e8f6fc 45%,
+    transparent 100%
+  );
+}
+
+.landscape--subtle .landscape__sky {
+  opacity: 0.5;
+}
+
+.landscape--hero .landscape__sky {
+  background: linear-gradient(180deg, #9dd4ef 0%, #eef8fc 55%, #faf9f6 100%);
+}
+
+.landscape__cloud {
+  position: absolute;
+  width: clamp(80px, 15vw, 140px);
+  height: auto;
+}
+
+.landscape__cloud--1 {
+  top: 8%;
+  left: 10%;
+}
+
+.landscape__cloud--2 {
+  top: 15%;
+  right: 12%;
+}
+
+.landscape__sun {
+  position: absolute;
+  top: 6%;
+  right: 18%;
+  width: 48px;
+  height: 48px;
+}
+
+.landscape__mountains {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 35%;
+}
+
+.landscape--hero .landscape__mountains {
+  height: 42%;
+}
+
+.landscape__trees {
+  position: absolute;
+  bottom: 8%;
+  left: 5%;
+  width: 200px;
+  opacity: 0.85;
+}
+
+.landscape__star {
+  position: absolute;
+  color: var(--color-yellow);
+  font-size: 1rem;
+  opacity: 0.6;
+}
+
+.landscape__star--1 {
+  top: 22%;
+  left: 25%;
+}
+
+.landscape__star--2 {
+  top: 12%;
+  right: 35%;
+  font-size: 0.75rem;
+}
+
+@media (max-width: 768px) {
+  .landscape__trees {
+    width: 120px;
+    opacity: 0.6;
+  }
+}

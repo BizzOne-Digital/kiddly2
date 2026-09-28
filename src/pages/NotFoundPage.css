@@ -1,0 +1,46 @@
+.not-found {
+  background: var(--color-cream);
+}
+
+.not-found__hero {
+  position: relative;
+  min-height: 280px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+.not-found__hero img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.not-found__hero-fade {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(250, 250, 248, 0.85), rgba(250, 250, 248, 0.95));
+}
+
+.not-found__inner {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  padding: var(--space-3xl) 0;
+  max-width: 520px;
+  margin-inline: auto;
+}
+
+.not-found__inner p {
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-xl);
+}
+
+.not-found__actions {
+  display: flex;
+  gap: var(--space-md);
+  justify-content: center;
+  flex-wrap: wrap;
+}

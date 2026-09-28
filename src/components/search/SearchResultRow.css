@@ -1,0 +1,122 @@
+.search-card {
+  padding: var(--space-md);
+  border-radius: var(--radius-lg);
+  transition: box-shadow var(--transition), border-color var(--transition);
+}
+
+.search-card--selected {
+  border-color: var(--color-teal);
+  box-shadow: 0 0 0 2px rgba(13, 60, 62, 0.12);
+}
+
+.search-card__grid {
+  display: grid;
+  grid-template-columns: 140px 1fr;
+  gap: var(--space-md);
+}
+
+.search-card__thumb {
+  width: 100%;
+  height: 100%;
+  min-height: 120px;
+  object-fit: cover;
+  border-radius: var(--radius-md);
+}
+
+.search-card__head {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--space-md);
+  align-items: flex-start;
+}
+
+.search-card__main h3 {
+  margin: 0 0 0.25rem;
+  font-size: 1.05rem;
+}
+
+.search-card__main h3 a {
+  color: var(--color-teal);
+  text-decoration: none;
+  font-weight: 800;
+}
+
+.search-card__main h3 a:hover {
+  color: var(--color-orange);
+}
+
+.search-card__rating {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  margin: 0 0 0.35rem;
+  font-weight: 700;
+  font-size: 0.85rem;
+  color: var(--color-orange);
+}
+
+.search-card__reviews {
+  color: var(--color-text-muted);
+  font-weight: 600;
+}
+
+.search-card__type,
+.search-card__loc {
+  margin: 0 0 0.2rem;
+  font-size: 0.82rem;
+  color: var(--color-text-muted);
+}
+
+.search-card__badges {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.35rem;
+  flex-shrink: 0;
+}
+
+.search-card__facts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-md) var(--space-lg);
+  list-style: none;
+  margin: var(--space-md) 0;
+  padding: 0;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--color-text-muted);
+}
+
+.search-card__facts li {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.search-card__facts svg {
+  color: var(--color-teal);
+}
+
+.search-card__cta {
+  width: 100%;
+  max-width: 280px;
+}
+
+@media (max-width: 600px) {
+  .search-card__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .search-card__thumb {
+    min-height: 160px;
+  }
+
+  .search-card__badges {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .search-card__cta {
+    max-width: none;
+  }
+}
