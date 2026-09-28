@@ -41,6 +41,7 @@ export function SearchPage() {
   const [sort, setSort] = useState<SortOption>(() => sortFromSearchParams(searchParams))
   const [selectedId, setSelectedId] = useState<string | null>(null)
   const [mobileView, setMobileView] = useState<MobileView>('list')
+  const [mobileUi, setMobileUi] = useState(false)
   const [drawerOpen, setDrawerOpen] = useState(false)
   const [savedIds, setSavedIds] = useState<Set<string>>(() => new Set())
 
@@ -76,6 +77,24 @@ export function SearchPage() {
       setSelectedId(results[0].id)
     }
   }, [results, selectedId])
+
+  useEffect(() => {
+    const mq = window.matchMedia('(max-width: 768px)')
+    const apply = () => {
+      const narrow = mq.matches
+      setMobileUi(narrow)
+      if (narrow) setMobileView('map')
+    }
+    apply()
+    mq.addEventListener('change', apply)
+    return () => mq.removeEventListener('change', apply)
+  }, [])
+
+  useEffect(() => {
+    const lock = mobileUi && mobileView === 'map'
+    document.body.classList.toggle('search-map-active', lock)
+    return () => document.body.classList.remove('search-map-active')
+  }, [mobileUi, mobileView])
 
   const syncUrl = useCallback(
     (filters: SearchFilters, nextSort: SortOption) => {
@@ -114,7 +133,9 @@ export function SearchPage() {
   ]
 
   return (
-    <div className={`search-page${mobileView === 'map' ? ' search-page--map-mode' : ''}`}>
+    <div
+      className={`search-page${mobileView === 'map' ? ' search-page--map-mode' : ' search-page--list-mode'}${mobileUi ? ' search-page--mobile-ui' : ''}`}
+    >
       <section className="search-hero">
         <div className="search-hero__bg" role="presentation">
           <img src="/images/search/hero-calgary.jpg" alt="" />
@@ -144,64 +165,71 @@ export function SearchPage() {
         </div>
       </section>
 
-      <section className="search-toolbar">
-        <div className="container">
-          <SearchFilterBar
-            filters={appliedFilters}
-            onChange={(f) => syncUrl(f, sort)}
-            onMoreFilters={() => {
-              setDraftFilters(appliedFilters)
-              setDrawerOpen(true)
-            }}
-          />
-        </div>
-      </section>
+      <div className="search-results-frame">
+        <div className="search-results-frame__chrome">
+          <section className="search-toolbar">
+            <div className="container search-toolbar__inner">
+              <SearchFilterBar
+                filters={appliedFilters}
+                onChange={(f) => syncUrl(f, sort)}
+                onMoreFilters={() => {
+                  setDraftFilters(appliedFilters)
+                  setDrawerOpen(true)
+                }}
+              />
+            </div>
+          </section>
 
-      <section className="container search-results-bar">
-        <p className="search-results-bar__count">
-          <strong>{results.length}</strong> childcare providers near {displayQ}
-        </p>
-        <div className="search-results-bar__actions">
-          <div className="search-view-toggle" role="tablist" aria-label="Results view">
-            <button
-              type="button"
-              role="tab"
-              aria-selected={mobileView === 'list'}
-              className={mobileView === 'list' ? 'is-active' : ''}
-              onClick={() => setMobileView('list')}
-            >
-              <List size={18} aria-hidden /> List
-            </button>
-            <button
-              type="button"
-              role="tab"
-              aria-selected={mobileView === 'map'}
-              className={mobileView === 'map' ? 'is-active' : ''}
-              onClick={() => setMobileView('map')}
-            >
-              <Map size={18} aria-hidden /> Map
-            </button>
-          </div>
-          <label className="search-results-bar__sort">
-            <span className="sr-only">Sort by</span>
-            <select
-              value={sort}
-              onChange={(e) => {
-                const next = e.target.value as SortOption
-                setSort(next)
-                syncUrl(appliedFilters, next)
-              }}
-              aria-label="Sort results"
-            >
-              <option value="distance">Sort by: Distance</option>
-              <option value="availability">Sort by: Availability</option>
-              <option value="name">Sort by: Name</option>
-            </select>
-          </label>
+          <section className="container search-results-bar">
+            <p className="search-results-bar__count">
+              <strong>{results.length}</strong> near {displayQ}
+            </p>
+            <div className="search-results-bar__actions">
+              <div
+                className="search-view-toggle search-view-toggle--desktop"
+                role="tablist"
+                aria-label="Results view"
+              >
+                <button
+                  type="button"
+                  role="tab"
+                  aria-selected={mobileView === 'list'}
+                  className={mobileView === 'list' ? 'is-active' : ''}
+                  onClick={() => setMobileView('list')}
+                >
+                  <List size={18} aria-hidden /> List
+                </button>
+                <button
+                  type="button"
+                  role="tab"
+                  aria-selected={mobileView === 'map'}
+                  className={mobileView === 'map' ? 'is-active' : ''}
+                  onClick={() => setMobileView('map')}
+                >
+                  <Map size={18} aria-hidden /> Map
+                </button>
+              </div>
+              <label className="search-results-bar__sort">
+                <span className="sr-only">Sort by</span>
+                <select
+                  value={sort}
+                  onChange={(e) => {
+                    const next = e.target.value as SortOption
+                    setSort(next)
+                    syncUrl(appliedFilters, next)
+                  }}
+                  aria-label="Sort results"
+                >
+                  <option value="distance">Distance</option>
+                  <option value="availability">Availability</option>
+                  <option value="name">Name</option>
+                </select>
+              </label>
+            </div>
+          </section>
         </div>
-      </section>
 
-      <section className="container search-layout">
+        <section className="container search-layout search-results-frame__body">
         <div className={`search-layout__grid ${mobileView === 'map' ? 'search-layout__grid--map' : ''}`}>
           <div className="search-layout__list">
             {results.length === 0 ? (
@@ -239,7 +267,33 @@ export function SearchPage() {
             </div>
           </div>
         </div>
-      </section>
+        </section>
+      </div>
+
+      <nav className="search-mobile-dock" aria-label="Switch results view">
+        <div className="search-mobile-dock__toggle" role="tablist">
+          <button
+            type="button"
+            role="tab"
+            aria-selected={mobileView === 'list'}
+            className={`search-mobile-dock__tab${mobileView === 'list' ? ' is-active' : ''}`}
+            onClick={() => setMobileView('list')}
+          >
+            <List size={20} aria-hidden />
+            List
+          </button>
+          <button
+            type="button"
+            role="tab"
+            aria-selected={mobileView === 'map'}
+            className={`search-mobile-dock__tab${mobileView === 'map' ? ' is-active' : ''}`}
+            onClick={() => setMobileView('map')}
+          >
+            <Map size={20} aria-hidden />
+            Map
+          </button>
+        </div>
+      </nav>
 
       <section className="search-cta" aria-labelledby="search-cta-title">
         <img src="/images/search/cta-lake.jpg" alt="" className="search-cta__bg" />

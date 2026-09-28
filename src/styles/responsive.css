@@ -133,18 +133,151 @@ section {
     display: none;
   }
 
+  /* Heroes: image band on top, copy below — no text on photo */
   .home-hero {
-    min-height: min(520px, 88vh);
+    flex-direction: column;
+    align-items: stretch;
+    min-height: 0;
+  }
+
+  .home-hero__scene {
+    position: relative;
+    inset: unset;
+    width: 100%;
+    height: clamp(10rem, 34vw, 13.5rem);
+    flex-shrink: 0;
+    order: -1;
+  }
+
+  .home-hero__scene picture,
+  .home-hero__scene-img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  .home-hero__scene-fade {
+    background: linear-gradient(
+      180deg,
+      rgba(250, 250, 248, 0.08) 0%,
+      rgba(250, 250, 248, 0.75) 75%,
+      var(--color-cream) 100%
+    );
   }
 
   .home-hero__inner {
     width: 100%;
     max-width: 100%;
-    padding: var(--space-xl) 0 var(--space-2xl);
+    padding: var(--space-md) 0 var(--space-2xl);
+    background: var(--color-cream);
   }
 
   .home-hero__copy {
     max-width: 100%;
+  }
+
+  .search-hero {
+    display: flex;
+    flex-direction: column;
+    padding: 0 0 var(--space-2xl);
+  }
+
+  .search-hero__bg {
+    position: relative;
+    inset: unset;
+    width: 100%;
+    height: clamp(9rem, 32vw, 12rem);
+    order: -1;
+    flex-shrink: 0;
+  }
+
+  .search-hero__fade {
+    height: clamp(9rem, 32vw, 12rem);
+    top: 0;
+    bottom: auto;
+    background: linear-gradient(
+      180deg,
+      rgba(250, 250, 248, 0.1) 0%,
+      rgba(250, 250, 248, 0.88) 100%
+    );
+  }
+
+  .search-hero__inner {
+    padding-top: var(--space-md);
+    background: var(--color-cream);
+  }
+
+  .audience-hero,
+  .contact-hero,
+  .faq-hero,
+  .about-hero,
+  .careers-hero {
+    flex-direction: column;
+    align-items: stretch;
+    min-height: 0;
+    padding-top: 0;
+  }
+
+  .audience-hero__bg,
+  .contact-hero__bg,
+  .faq-hero__bg,
+  .about-hero__bg,
+  .careers-hero__bg {
+    position: relative;
+    inset: unset;
+    width: 100%;
+    height: clamp(9rem, 32vw, 12rem);
+    order: -1;
+    flex-shrink: 0;
+  }
+
+  .audience-hero__wash,
+  .contact-hero__wash,
+  .faq-hero__wash,
+  .about-hero__wash,
+  .careers-hero__wash {
+    height: clamp(9rem, 32vw, 12rem);
+    top: 0;
+    bottom: auto;
+    background: linear-gradient(
+      180deg,
+      rgba(250, 250, 248, 0.12) 0%,
+      rgba(250, 250, 248, 0.9) 100%
+    );
+  }
+
+  .audience-hero__inner,
+  .contact-hero__inner,
+  .faq-hero__inner,
+  .about-hero__inner,
+  .careers-hero__inner {
+    padding-top: var(--space-md);
+    background: var(--color-cream);
+  }
+
+  .not-found__hero {
+    flex-direction: column;
+    align-items: stretch;
+    min-height: 0;
+  }
+
+  .not-found__hero > img {
+    position: relative;
+    inset: unset;
+    width: 100%;
+    height: clamp(9rem, 32vw, 11rem);
+    object-fit: cover;
+    order: -1;
+  }
+
+  .not-found__hero-fade {
+    display: none;
+  }
+
+  .not-found__inner {
+    background: var(--color-cream);
+    padding-top: var(--space-lg);
   }
 
   .home-hero__trust {
@@ -183,10 +316,6 @@ section {
     width: 100%;
     max-width: 20rem;
     margin-inline: auto;
-  }
-
-  .search-hero {
-    padding: var(--space-xl) 0 var(--space-2xl);
   }
 
   .search-hero__inner {
@@ -237,6 +366,17 @@ section {
   .contact-faq-band__visual {
     overflow: hidden;
     max-width: 100%;
+  }
+
+  .contact-faq-band__note {
+    position: static;
+    transform: none;
+    max-width: 100%;
+    margin-bottom: var(--space-sm);
+  }
+
+  .home-explore__map-wrap {
+    margin-bottom: var(--space-md);
   }
 
   .site-footer__cta-inner {
