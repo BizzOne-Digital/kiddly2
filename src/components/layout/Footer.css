@@ -96,10 +96,10 @@
 
 .site-footer__logo.kiddly-logo {
   display: inline-flex;
-  padding: 0.65rem 1.1rem;
-  background: var(--color-white);
+  padding: 0.5rem 0.85rem;
+  background: rgba(255, 255, 255, 0.98);
   border-radius: var(--radius-lg);
-  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.18);
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.12);
   margin-bottom: var(--space-lg);
 }
 

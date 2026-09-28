@@ -13,8 +13,9 @@ export function KiddlyLogo({ variant = 'default', className = '', onClick }: Kid
         src="/kiddly-logo.png"
         alt="Kiddly"
         className={`kiddly-logo__img${variant === 'light' ? ' kiddly-logo__img--light' : ''}`}
-        width={140}
-        height={48}
+        width={168}
+        height={56}
+        decoding="async"
       />
     </Link>
   )
