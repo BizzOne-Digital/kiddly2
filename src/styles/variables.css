@@ -58,7 +58,7 @@
   --shadow-md: 0 8px 28px rgba(13, 60, 62, 0.1);
   --shadow-lg: 0 16px 48px rgba(13, 60, 62, 0.12);
 
-  --header-height: 76px;
+  --header-height: 88px;
   --max-width: 1240px;
   --transition: 0.2s ease;
 }

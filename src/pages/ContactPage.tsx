@@ -23,6 +23,7 @@ type Topic =
   | 'account'
   | 'report'
   | 'general'
+  | 'careers'
   | 'other'
 
 const AGE_CARDS: { id: AgeGroup; title: string; range: string; icon: typeof Baby }[] = [
@@ -71,8 +72,19 @@ export function ContactPage() {
 
   useEffect(() => {
     const topic = params.get('topic')
+    const roleParam = params.get('role')
     if (topic === 'provider-profile') {
       setForm((f) => ({ ...f, topic: 'provider-profile', role: 'educator' }))
+    }
+    if (topic === 'careers') {
+      setForm((f) => ({
+        ...f,
+        topic: 'careers',
+        role: 'other',
+        message: roleParam
+          ? `I am interested in the ${roleParam} role at Kiddly.\n\n`
+          : f.message || 'I am interested in opportunities at Kiddly.\n\n',
+      }))
     }
   }, [params])
 
@@ -213,6 +225,7 @@ export function ContactPage() {
                   <option value="account">Account</option>
                   <option value="report">Report information</option>
                   <option value="general">General question</option>
+                  <option value="careers">Careers / hiring</option>
                   <option value="other">Other</option>
                 </select>
                 {errors.topic && <span className="field-error">{errors.topic}</span>}

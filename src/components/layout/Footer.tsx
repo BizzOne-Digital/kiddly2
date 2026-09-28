@@ -1,5 +1,5 @@
 import { Link, NavLink } from 'react-router-dom'
-import { Facebook, Instagram, Linkedin, Youtube } from 'lucide-react'
+import { ArrowRight, Facebook, Instagram, Linkedin, Mail, Youtube } from 'lucide-react'
 import { KiddlyLogo } from '../brand/KiddlyLogo'
 import '../brand/KiddlyLogo.css'
 import './Footer.css'
@@ -16,15 +16,15 @@ const educatorsLinks = [
 ]
 
 const companyLinks = [
-  { to: '/contact', label: 'About' },
-  { to: '/contact', label: 'Careers' },
+  { to: '/about', label: 'About' },
+  { to: '/careers', label: 'Careers' },
   { to: '/contact', label: 'Press' },
 ]
 
 const supportLinks = [
   { to: '/contact', label: 'Contact' },
-  { to: '/contact', label: 'Privacy Policy' },
-  { to: '/contact', label: 'Terms of Use' },
+  { to: '/privacy', label: 'Privacy Policy' },
+  { to: '/terms', label: 'Terms of Use' },
 ]
 
 const year = new Date().getFullYear()
@@ -50,11 +50,37 @@ function FooterNavLink({ to, label }: { to: string; label: string }) {
 export function Footer() {
   return (
     <footer className="site-footer">
+      <div className="site-footer__accent" aria-hidden />
+
+      <div className="site-footer__cta">
+        <div className="container site-footer__cta-inner">
+          <div className="site-footer__cta-copy">
+            <p className="site-footer__cta-script">A brighter tomorrow for every child</p>
+            <h2 className="site-footer__cta-title">Ready to explore childcare near you?</h2>
+            <p className="site-footer__cta-lead">
+              Search sample listings, compare programs, and connect when you are ready.
+            </p>
+          </div>
+          <div className="site-footer__cta-actions">
+            <Link to="/search" className="btn btn--primary btn--lg">
+              Search childcare <ArrowRight size={20} aria-hidden />
+            </Link>
+            <Link to="/contact" className="site-footer__cta-secondary">
+              <Mail size={18} aria-hidden />
+              Get in touch
+            </Link>
+          </div>
+        </div>
+      </div>
+
       <div className="container site-footer__inner">
         <div className="site-footer__brand">
-          <KiddlyLogo variant="light" className="site-footer__logo-wrap" />
+          <KiddlyLogo className="site-footer__logo" />
           <p className="site-footer__tagline">
             Find childcare that fits your family — built for stronger Canadian communities.
+          </p>
+          <p className="site-footer__trust">
+            Licensed &amp; private care labels · Map + list search · Demo prototype
           </p>
         </div>
 
@@ -107,18 +133,19 @@ export function Footer() {
             <span className="site-footer__lang-sep" aria-hidden>|</span>
             <button type="button" className="site-footer__lang-btn" disabled>FR</button>
           </div>
+          <p className="site-footer__social-label">Follow Kiddly</p>
           <div className="site-footer__social">
             <a href="#" className="site-footer__social-btn" aria-label="Instagram (demo)">
-              <Instagram size={18} aria-hidden />
+              <Instagram size={20} aria-hidden />
             </a>
             <a href="#" className="site-footer__social-btn" aria-label="Facebook (demo)">
-              <Facebook size={18} aria-hidden />
+              <Facebook size={20} aria-hidden />
             </a>
             <a href="#" className="site-footer__social-btn" aria-label="LinkedIn (demo)">
-              <Linkedin size={18} aria-hidden />
+              <Linkedin size={20} aria-hidden />
             </a>
             <a href="#" className="site-footer__social-btn" aria-label="YouTube (demo)">
-              <Youtube size={18} aria-hidden />
+              <Youtube size={20} aria-hidden />
             </a>
           </div>
         </div>
@@ -127,6 +154,10 @@ export function Footer() {
       <div className="site-footer__bar">
         <div className="container site-footer__bar-inner">
           <p className="site-footer__copy">© {year} Kiddly. All rights reserved.</p>
+          <div className="site-footer__bar-links">
+            <Link to="/privacy" className="site-footer__bar-link">Privacy</Link>
+            <Link to="/terms" className="site-footer__bar-link">Terms</Link>
+          </div>
           <p className="site-footer__canada">
             Built for stronger Canadian communities
             <span className="site-footer__leaf" aria-hidden>🍁</span>

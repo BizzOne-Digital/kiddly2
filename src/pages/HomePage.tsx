@@ -19,6 +19,7 @@ import { HOME_FEATURED } from '../data/homeFeatured'
 import { HOME_EXPLORE_CARDS } from '../data/homeExploreCards'
 import { FAQ_ITEMS } from '../data/faq'
 import { Accordion } from '../components/ui/Accordion'
+import { PictureImg } from '../components/ui/PictureImg'
 import { useDocumentTitle } from '../hooks/useDocumentTitle'
 import './HomePage.css'
 
@@ -99,7 +100,15 @@ export function HomePage() {
     <div className="home">
       <section className="home-hero" aria-labelledby="home-hero-title">
         <div className="home-hero__scene" aria-hidden>
-          <img src="/images/hero-home.jpg" alt="" className="home-hero__scene-img" />
+          <PictureImg
+            src="/images/hero-home.jpg"
+            alt=""
+            className="home-hero__scene-img"
+            width={1920}
+            height={1080}
+            fetchPriority="high"
+            decoding="async"
+          />
           <div className="home-hero__scene-fade" />
         </div>
         <div className="container home-hero__inner">
@@ -123,45 +132,55 @@ export function HomePage() {
       </section>
 
       <section className="home-audience" aria-label="For parents and educators">
-        <div className="container home-audience__grid">
-          <article className="home-audience__card" id="for-parents">
-            <div className="home-audience__icon" aria-hidden>
-              <Heart size={26} />
-            </div>
-            <h2>For Parents</h2>
-            <p>
-              Search nearby licensed centres and family dayhomes, compare what matters, and contact
-              providers when you are ready.
+        <div className="container">
+          <div className="home-audience__panel">
+            <p className="home-script home-audience__script" aria-hidden>
+              A brighter tomorrow for every child
             </p>
-            <Link to="/for-parents" className="home-text-link">
-              Learn more <ArrowRight size={18} aria-hidden />
-            </Link>
-          </article>
+            <div className="home-audience__grid">
+              <article className="home-audience__card" id="for-parents">
+                <div className="home-audience__icon" aria-hidden>
+                  <Heart size={26} />
+                </div>
+                <h2>For Parents</h2>
+                <p>
+                  Search nearby licensed centres and family dayhomes, compare what matters, and contact
+                  providers when you are ready.
+                </p>
+                <Link to="/for-parents" className="home-text-link">
+                  Learn more <ArrowRight size={18} aria-hidden />
+                </Link>
+              </article>
 
-          <p className="home-script home-audience__script" aria-hidden>
-            A brighter tomorrow for every child
-          </p>
+              <article className="home-audience__card" id="for-educators">
+                <div className="home-audience__icon" aria-hidden>
+                  <Users size={26} />
+                </div>
+                <h2>For Educators</h2>
+                <p>
+                  Create or claim your profile, keep your program details current, and help families find
+                  care that fits.
+                </p>
+                <Link to="/for-educators" className="home-text-link">
+                  Learn more <ArrowRight size={18} aria-hidden />
+                </Link>
+              </article>
 
-          <article className="home-audience__card" id="for-educators">
-            <div className="home-audience__icon" aria-hidden>
-              <Users size={26} />
-            </div>
-            <h2>For Educators</h2>
-            <p>
-              Create or claim your profile, keep your program details current, and help families find
-              care that fits.
-            </p>
-            <Link to="/for-educators" className="home-text-link">
-              Learn more <ArrowRight size={18} aria-hidden />
-            </Link>
-          </article>
-
-          <div className="home-audience__books" aria-hidden>
-            <img src="/images/books-stack.jpg" alt="" loading="lazy" />
-            <div className="home-audience__book-labels">
-              <span>Play</span>
-              <span>Grow</span>
-              <span>Belong</span>
+              <div className="home-audience__books" aria-hidden>
+                <div className="home-audience__book-labels">
+                  <span>Play</span>
+                  <span>Grow</span>
+                  <span>Belong</span>
+                </div>
+                <PictureImg
+                  src="/images/books-stack.jpg"
+                  alt=""
+                  width={200}
+                  height={200}
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
             </div>
           </div>
         </div>
@@ -181,11 +200,12 @@ export function HomePage() {
           </div>
 
           <div className="home-explore__map-wrap">
-            <img
+            <PictureImg
               src="/images/map-explore.jpg"
               alt=""
               className="home-explore__map"
               loading="lazy"
+              decoding="async"
             />
             <p className="home-explore__bubble" aria-hidden>
               Great childcare builds brighter communities
@@ -199,7 +219,7 @@ export function HomePage() {
                 to={`/providers/${card.slug}`}
                 className="home-explore-card card"
               >
-                <img src={card.image} alt="" className="home-explore-card__thumb" />
+                <PictureImg src={card.image} alt="" className="home-explore-card__thumb" loading="lazy" />
                 <div className="home-explore-card__body">
                   <h3>{card.name}</h3>
                   <Stars rating={card.rating} />
@@ -257,7 +277,7 @@ export function HomePage() {
       <section className="home-grow section section--mint">
         <div className="container home-grow__grid">
           <div className="home-grow__visual">
-            <img src="/images/grow-educators.jpg" alt="" loading="lazy" />
+            <PictureImg src="/images/grow-educators.jpg" alt="" loading="lazy" decoding="async" />
           </div>
           <div className="home-grow__content">
             <h2 className="home-display-title">Grow your impact with Kiddly</h2>
@@ -297,7 +317,7 @@ export function HomePage() {
             </div>
           </div>
           <div className="home-trust__aside">
-            <img src="/images/trust-mountains.jpg" alt="" loading="lazy" />
+            <PictureImg src="/images/trust-mountains.jpg" alt="" loading="lazy" decoding="async" />
             <p className="home-script home-trust__script" aria-hidden>
               Safe Supported Stronger Together
             </p>
@@ -318,7 +338,7 @@ export function HomePage() {
       </section>
 
       <section className="home-final-cta" aria-labelledby="home-cta-title">
-        <img src="/images/cta-lake.jpg" alt="" className="home-final-cta__bg" />
+        <PictureImg src="/images/cta-lake.jpg" alt="" className="home-final-cta__bg" loading="lazy" decoding="async" />
         <div className="home-final-cta__overlay" aria-hidden />
         <div className="container home-final-cta__content">
           <p className="home-script home-final-cta__script" aria-hidden>

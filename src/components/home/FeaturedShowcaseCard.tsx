@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import { Heart, Star } from 'lucide-react'
 import type { HomeFeaturedCard } from '../../data/homeFeatured'
+import { PictureImg } from '../ui/PictureImg'
 import './FeaturedShowcaseCard.css'
 
 export function FeaturedShowcaseCard({ card }: { card: HomeFeaturedCard }) {
@@ -8,7 +9,7 @@ export function FeaturedShowcaseCard({ card }: { card: HomeFeaturedCard }) {
     <article className="showcase-card card">
       <Link to={`/providers/${card.slug}`} className="showcase-card__link">
         <div className="showcase-card__media">
-          <img src={card.image} alt="" className="showcase-card__img" loading="lazy" />
+          <PictureImg src={card.image} alt="" className="showcase-card__img" loading="lazy" decoding="async" />
           <button
             type="button"
             className="showcase-card__save"

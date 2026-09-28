@@ -9,7 +9,7 @@ const navItems = [
   { to: '/for-parents', label: 'For Parents' },
   { to: '/for-educators', label: 'For Educators' },
   { to: '/faq', label: 'Resources' },
-  { to: '/contact', label: 'About' },
+  { to: '/about', label: 'About' },
 ]
 
 export function Header() {

@@ -1,3 +1,8 @@
 {
-  "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }]
+  "rewrites": [
+    {
+      "source": "/((?!assets/|images/|kiddly-logo\\.png|hero-landscape\\.jpg|favicon\\.ico|.*\\.(?:jpg|jpeg|png|gif|webp|svg|ico|woff2?|css|js|map)$).*)",
+      "destination": "/index.html"
+    }
+  ]
 }

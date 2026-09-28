@@ -5,11 +5,13 @@
 }
 
 .kiddly-logo__img {
-  height: 52px;
+  height: clamp(52px, 5vw, 58px);
   width: auto;
   object-fit: contain;
+  display: block;
 }
 
+/* Prefer a white logo plate on dark backgrounds (see site-footer__logo). */
 .kiddly-logo__img--light {
-  filter: brightness(0) invert(1);
+  filter: none;
 }

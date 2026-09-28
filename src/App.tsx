@@ -5,6 +5,10 @@ import { SearchPage } from './pages/SearchPage'
 import { ProviderDetailPage } from './pages/ProviderDetailPage'
 import { FAQPage } from './pages/FAQPage'
 import { ContactPage } from './pages/ContactPage'
+import { AboutPage } from './pages/AboutPage'
+import { CareersPage } from './pages/CareersPage'
+import { PrivacyPage } from './pages/PrivacyPage'
+import { TermsPage } from './pages/TermsPage'
 import { ForParentsPage } from './pages/ForParentsPage'
 import { ForEducatorsPage } from './pages/ForEducatorsPage'
 import { NotFoundPage } from './pages/NotFoundPage'
@@ -20,6 +24,10 @@ export default function App() {
           <Route path="/for-parents" element={<ForParentsPage />} />
           <Route path="/for-educators" element={<ForEducatorsPage />} />
           <Route path="/faq" element={<FAQPage />} />
+          <Route path="/about" element={<AboutPage />} />
+          <Route path="/careers" element={<CareersPage />} />
+          <Route path="/privacy" element={<PrivacyPage />} />
+          <Route path="/terms" element={<TermsPage />} />
           <Route path="/contact" element={<ContactPage />} />
           <Route path="*" element={<NotFoundPage />} />
         </Route>
