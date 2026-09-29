@@ -167,7 +167,7 @@ export function SearchPage() {
 
       <div className="search-results-frame">
         <div className="search-results-frame__chrome">
-          <section className="search-toolbar">
+          <section className="search-toolbar search-toolbar--top">
             <div className="container search-toolbar__inner">
               <SearchFilterBar
                 filters={appliedFilters}
@@ -270,8 +270,18 @@ export function SearchPage() {
         </section>
       </div>
 
-      <nav className="search-mobile-dock" aria-label="Switch results view">
-        <div className="search-mobile-dock__toggle" role="tablist">
+      <nav className="search-mobile-dock" aria-label="Filters and results view">
+        <div className="search-mobile-dock__filters">
+          <SearchFilterBar
+            filters={appliedFilters}
+            onChange={(f) => syncUrl(f, sort)}
+            onMoreFilters={() => {
+              setDraftFilters(appliedFilters)
+              setDrawerOpen(true)
+            }}
+          />
+        </div>
+        <div className="search-mobile-dock__toggle" role="tablist" aria-label="Switch results view">
           <button
             type="button"
             role="tab"
