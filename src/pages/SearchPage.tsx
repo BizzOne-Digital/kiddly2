@@ -92,8 +92,30 @@ export function SearchPage() {
 
   useEffect(() => {
     const lock = mobileUi && mobileView === 'map'
-    document.body.classList.toggle('search-map-active', lock)
-    return () => document.body.classList.remove('search-map-active')
+    const html = document.documentElement
+    const body = document.body
+
+    if (lock) {
+      const scrollY = window.scrollY
+      body.dataset.searchScrollY = String(scrollY)
+      body.style.top = scrollY ? `-${scrollY}px` : ''
+      body.classList.add('search-map-active')
+      html.classList.add('search-map-active')
+    } else {
+      const y = Number(body.dataset.searchScrollY || 0)
+      body.classList.remove('search-map-active')
+      html.classList.remove('search-map-active')
+      body.style.top = ''
+      delete body.dataset.searchScrollY
+      if (y) window.scrollTo(0, y)
+    }
+
+    return () => {
+      body.classList.remove('search-map-active')
+      html.classList.remove('search-map-active')
+      body.style.top = ''
+      delete body.dataset.searchScrollY
+    }
   }, [mobileUi, mobileView])
 
   const syncUrl = useCallback(
