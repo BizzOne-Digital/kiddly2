@@ -32,35 +32,43 @@ export function Header() {
         <KiddlyLogo onClick={close} />
 
         <nav className={`site-header__nav${open ? ' is-open' : ''}`} aria-label="Main">
-          <ul className="site-header__list" id="mobile-nav">
-            {navItems.map((item) => (
-              <li key={item.label}>
-                <NavLink
-                  to={item.to}
-                  className={({ isActive }) =>
-                    `site-header__link${isActive ? ' is-active' : ''}`
-                  }
-                  onClick={close}
-                >
-                  {item.label}
-                </NavLink>
-              </li>
-            ))}
-            <li className="site-header__nav-auth">
+          <div className="site-header__nav-panel">
+            <ul className="site-header__list" id="mobile-nav">
+              {navItems.map((item) => (
+                <li key={item.label}>
+                  <NavLink
+                    to={item.to}
+                    className={({ isActive }) =>
+                      `site-header__link${isActive ? ' is-active' : ''}`
+                    }
+                    onClick={close}
+                  >
+                    {item.label}
+                  </NavLink>
+                </li>
+              ))}
+            </ul>
+            <div className="site-header__nav-auth">
               <Link to="/contact" className="site-header__link" onClick={close}>Log in</Link>
               <Link to="/contact" className="btn btn--teal site-header__signup" onClick={close}>
                 Sign up
               </Link>
-            </li>
-          </ul>
+            </div>
+          </div>
         </nav>
 
         <div className="site-header__actions">
           <Link to="/search" className="site-header__search" aria-label="Search childcare" onClick={close}>
             <Search size={22} aria-hidden />
           </Link>
-          <Link to="/contact" className="site-header__login" onClick={close}>Log in</Link>
-          <Link to="/contact" className="btn btn--teal site-header__signup" onClick={close}>
+          <Link to="/contact" className="site-header__login site-header__login--bar" onClick={close}>
+            Log in
+          </Link>
+          <Link
+            to="/contact"
+            className="btn btn--teal site-header__signup site-header__signup--bar"
+            onClick={close}
+          >
             Sign up
           </Link>
           <button

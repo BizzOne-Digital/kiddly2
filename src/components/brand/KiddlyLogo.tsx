@@ -9,14 +9,17 @@ type KiddlyLogoProps = {
 export function KiddlyLogo({ variant = 'default', className = '', onClick }: KiddlyLogoProps) {
   return (
     <Link to="/" className={`kiddly-logo ${className}`} onClick={onClick} aria-label="Kiddly home">
-      <img
-        src="/kiddly-logo.png"
-        alt="Kiddly"
-        className={`kiddly-logo__img${variant === 'light' ? ' kiddly-logo__img--light' : ''}`}
-        width={168}
-        height={56}
-        decoding="async"
-      />
+      <picture>
+        <source srcSet="/kiddly-logo.webp" type="image/webp" />
+        <img
+          src="/kiddly-logo.png"
+          alt="Kiddly — colorful house logo above the word Kiddly"
+          className={`kiddly-logo__img${variant === 'light' ? ' kiddly-logo__img--light' : ''}`}
+          width={320}
+          height={320}
+          decoding="async"
+        />
+      </picture>
     </Link>
   )
 }

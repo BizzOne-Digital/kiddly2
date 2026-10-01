@@ -5,9 +5,9 @@
 }
 
 .kiddly-logo__img {
-  height: clamp(44px, 5vw, 52px);
+  height: clamp(52px, 7vw, 64px);
   width: auto;
-  max-width: min(200px, 52vw);
+  max-width: min(88px, 22vw);
   object-fit: contain;
   display: block;
 }
