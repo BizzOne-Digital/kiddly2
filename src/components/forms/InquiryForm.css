@@ -5,12 +5,23 @@
 }
 
 .inquiry-form label {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-xs);
+  display: block;
   font-weight: 700;
   font-size: 0.9rem;
   color: var(--color-navy);
+}
+
+.inquiry-form label:not(.inquiry-form__consent) > input,
+.inquiry-form label:not(.inquiry-form__consent) > textarea,
+.inquiry-form label:not(.inquiry-form__consent) > select {
+  display: block;
+  width: 100%;
+  margin-top: var(--space-xs);
+}
+
+.inquiry-form label .field-error {
+  display: block;
+  margin-top: var(--space-xs);
 }
 
 .inquiry-form input,
@@ -22,8 +33,10 @@
 }
 
 .inquiry-form__consent {
+  display: flex;
   flex-direction: row;
   align-items: flex-start;
+  gap: var(--space-sm);
   font-weight: 600;
 }
 
@@ -66,6 +79,3 @@
   font-weight: 700;
 }
 
-.required {
-  color: var(--color-coral);
-}

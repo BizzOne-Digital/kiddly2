@@ -275,6 +275,16 @@ textarea {
   max-width: 100%;
 }
 
+/* Required field marker — keep on same line as label text */
+.required {
+  display: inline;
+  margin-left: 0.12em;
+  color: var(--color-coral);
+  font-weight: 800;
+  line-height: inherit;
+  vertical-align: baseline;
+}
+
 .page-enter {
   animation: fadeIn 0.4s ease;
 }

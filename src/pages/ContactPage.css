@@ -101,16 +101,32 @@
   font-size: 0.95rem;
 }
 
-.contact-form label,
+.contact-form label:not(.contact-form__consent):not(.contact-method-card),
 .contact-form fieldset {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-xs);
+  display: block;
   font-weight: 700;
   color: var(--color-teal);
   border: none;
   margin: 0 0 var(--space-md);
   padding: 0;
+}
+
+.contact-form label:not(.contact-form__consent):not(.contact-method-card) > input,
+.contact-form label:not(.contact-form__consent):not(.contact-method-card) > select,
+.contact-form label:not(.contact-form__consent):not(.contact-method-card) > textarea {
+  display: block;
+  width: 100%;
+  margin-top: var(--space-xs);
+}
+
+.contact-form label:not(.contact-form__consent):not(.contact-method-card) .field-error {
+  display: block;
+  margin-top: var(--space-xs);
+}
+
+.contact-form label.contact-input-icon .contact-input-wrap {
+  display: flex;
+  margin-top: var(--space-xs);
 }
 
 .contact-form fieldset legend {
@@ -244,6 +260,7 @@
 }
 
 .contact-form__consent {
+  display: flex !important;
   flex-direction: row !important;
   align-items: flex-start;
   gap: var(--space-sm);
@@ -262,10 +279,6 @@
   padding: 1rem;
   font-size: 1.05rem;
   margin-top: var(--space-sm);
-}
-
-.required {
-  color: var(--color-coral);
 }
 
 .field-error {

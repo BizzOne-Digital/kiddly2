@@ -139,6 +139,11 @@ export function SearchPage() {
   const displayQ = appliedFilters.q || placeLabel
   const childAge = searchParams.get('childAge') ?? ''
 
+  function handleSortChange(next: SortOption) {
+    setSort(next)
+    syncUrl(appliedFilters, next)
+  }
+
   function toggleSave(id: string) {
     setSavedIds((prev) => {
       const next = new Set(prev)
@@ -231,15 +236,11 @@ export function SearchPage() {
                   <Map size={18} aria-hidden /> Map
                 </button>
               </div>
-              <label className="search-results-bar__sort">
+              <label className="search-results-bar__sort search-results-bar__sort--desktop">
                 <span className="sr-only">Sort by</span>
                 <select
                   value={sort}
-                  onChange={(e) => {
-                    const next = e.target.value as SortOption
-                    setSort(next)
-                    syncUrl(appliedFilters, next)
-                  }}
+                  onChange={(e) => handleSortChange(e.target.value as SortOption)}
                   aria-label="Sort results"
                 >
                   <option value="distance">Distance</option>
@@ -302,6 +303,23 @@ export function SearchPage() {
               setDrawerOpen(true)
             }}
           />
+        </div>
+        <div className="search-mobile-dock__meta">
+          <p className="search-mobile-dock__count">
+            <strong>{results.length}</strong> near {displayQ}
+          </p>
+          <label className="search-mobile-dock__sort">
+            <span className="sr-only">Sort by</span>
+            <select
+              value={sort}
+              onChange={(e) => handleSortChange(e.target.value as SortOption)}
+              aria-label="Sort results"
+            >
+              <option value="distance">Distance</option>
+              <option value="availability">Availability</option>
+              <option value="name">Name</option>
+            </select>
+          </label>
         </div>
         <div className="search-mobile-dock__toggle" role="tablist" aria-label="Switch results view">
           <button
