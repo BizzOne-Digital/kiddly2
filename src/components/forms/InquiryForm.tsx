@@ -67,10 +67,6 @@ export function InquiryForm({ providerName, onSuccess, variant = 'default' }: In
         <input name="email" type="email" required aria-invalid={!!errors.email} />
         {errors.email && <span className="field-error">{errors.email}</span>}
       </label>
-      <label>
-        Phone number
-        <input name="phone" type="tel" placeholder="Optional" />
-      </label>
       {isProfile && (
         <label>
           Child&apos;s age

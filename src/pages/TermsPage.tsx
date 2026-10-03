@@ -106,7 +106,6 @@ export function TermsPage() {
             <h2>9. Contact</h2>
             <p>
               Questions about these Terms:{' '}
-              <a href="mailto:kiddly.ca@gmail.com" className="text-link">kiddly.ca@gmail.com</a> or{' '}
               <Link to="/contact" className="text-link">contact us</Link>.
             </p>
           </section>

@@ -5,9 +5,7 @@ import {
   Baby,
   Calendar,
   Heart,
-  Mail,
   MapPin,
-  Phone,
   Sprout,
   Sun,
   Users,
@@ -37,14 +35,12 @@ interface FormState {
   firstName: string
   lastName: string
   email: string
-  phone: string
   role: Role | ''
   topic: Topic | ''
   ageGroups: AgeGroup[]
   location: string
   startDate: string
   message: string
-  contactMethod: '' | 'email' | 'phone'
   consent: boolean
 }
 
@@ -52,14 +48,12 @@ const initial: FormState = {
   firstName: '',
   lastName: '',
   email: '',
-  phone: '',
   role: '',
   topic: '',
   ageGroups: [],
   location: '',
   startDate: '',
   message: '',
-  contactMethod: '',
   consent: false,
 }
 
@@ -124,8 +118,8 @@ export function ContactPage() {
         <h1>Demo confirmation</h1>
         <p>
           Thank you, {form.firstName}. This is a <strong>frontend-only prototype</strong> — your
-          message was not emailed or stored. A production build would send this to{' '}
-          <a href="mailto:kiddly.ca@gmail.com">kiddly.ca@gmail.com</a> via a secure endpoint.
+          message was not emailed or stored. A production build would deliver it through a secure
+          endpoint to the Kiddly team.
         </p>
         <button type="button" className="btn btn--secondary" onClick={() => setSubmitted(false)}>
           Send another demo message
@@ -185,14 +179,6 @@ export function ContactPage() {
                   aria-invalid={!!errors.email}
                 />
                 {errors.email && <span className="field-error">{errors.email}</span>}
-              </label>
-              <label>
-                Phone
-                <input
-                  type="tel"
-                  value={form.phone}
-                  onChange={(e) => setForm({ ...form, phone: e.target.value })}
-                />
               </label>
             </div>
 
@@ -291,34 +277,6 @@ export function ContactPage() {
               {errors.message && <span className="field-error">{errors.message}</span>}
             </label>
 
-            <fieldset className="contact-method-fieldset">
-              <legend>Preferred contact method</legend>
-              <div className="contact-method-grid">
-                {(
-                  [
-                    { id: 'email' as const, label: 'Email', desc: 'We reply to your inbox', icon: Mail },
-                    { id: 'phone' as const, label: 'Phone', desc: 'Call when it suits you', icon: Phone },
-                  ] as const
-                ).map((m) => (
-                  <label
-                    key={m.id}
-                    className={`contact-method-card ${form.contactMethod === m.id ? 'is-selected' : ''}`}
-                  >
-                    <input
-                      type="radio"
-                      name="contactMethod"
-                      value={m.id}
-                      checked={form.contactMethod === m.id}
-                      onChange={() => setForm({ ...form, contactMethod: m.id })}
-                    />
-                    <m.icon size={22} aria-hidden />
-                    <span className="contact-method-card__title">{m.label}</span>
-                    <span className="contact-method-card__desc">{m.desc}</span>
-                  </label>
-                ))}
-              </div>
-            </fieldset>
-
             <label className="contact-form__consent">
               <input
                 type="checkbox"
@@ -348,27 +306,6 @@ export function ContactPage() {
                   about this prototype, our team can point you in the right direction.
                 </p>
               </div>
-            </article>
-
-            <article className="contact-aside-card card">
-              <div className="contact-aside-card__icon contact-aside-card__icon--blue">
-                <Mail size={22} aria-hidden />
-              </div>
-              <h3>Email us</h3>
-              <a href="mailto:kiddly.ca@gmail.com" className="contact-aside-card__link">
-                kiddly.ca@gmail.com
-              </a>
-            </article>
-
-            <article className="contact-aside-card card">
-              <div className="contact-aside-card__icon contact-aside-card__icon--yellow">
-                <Phone size={22} aria-hidden />
-              </div>
-              <h3>Call us</h3>
-              <a href="tel:+18254373563" className="contact-aside-card__link">
-                825-437-3563
-              </a>
-              <p className="contact-aside-card__meta">Weekdays, 9:00 a.m.–5:00 p.m. MT (sample hours)</p>
             </article>
 
             <article className="contact-aside-card card contact-aside-card--provider">

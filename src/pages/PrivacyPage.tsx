@@ -104,9 +104,8 @@ export function PrivacyPage() {
           <section className="legal-section">
             <h2>7. Contact</h2>
             <p>
-              Privacy questions:{' '}
-              <a href="mailto:kiddly.ca@gmail.com" className="text-link">kiddly.ca@gmail.com</a> or
-              our <Link to="/contact" className="text-link">contact form</Link>.
+              Privacy questions: use our{' '}
+              <Link to="/contact" className="text-link">contact form</Link>.
             </p>
           </section>
 
