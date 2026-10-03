@@ -146,8 +146,7 @@ export function ContactPage() {
           <form className="contact-form card" onSubmit={handleSubmit} noValidate>
             <h2>Send us a message</h2>
             <p className="contact-form__intro">
-              Share a few details and we&apos;ll respond using your preferred contact method (demo
-              only — no message is sent).
+              Share a few details and we&apos;ll get back to you as soon as we can.
             </p>
 
             <div className="contact-form__row">
